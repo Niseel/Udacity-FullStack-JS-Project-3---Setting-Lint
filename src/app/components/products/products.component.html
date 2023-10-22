@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="product-index">
+    <div *ngIf="loading; else productsLoading">
+      <app-loading-indicator></app-loading-indicator>
+    </div>
+    
+    <ng-template #productsLoading>
+      <div class="col-3" *ngFor="let product of productList">
+        <app-product-item [product]="product"> </app-product-item>
+      </div>
+    </ng-template>
+  </div>
+</div>

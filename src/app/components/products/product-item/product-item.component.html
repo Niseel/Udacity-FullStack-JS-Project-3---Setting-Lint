@@ -1,0 +1,32 @@
+<div class="product-container">
+  <div class="container">
+    <img
+      class="product-image col-12"
+      [src]="product.url"
+      alt="product-image"
+      (click)="navigateToProductDetail(product.id)"
+    />
+
+    <div class="col-12 d-flex justify-content-between px-4 fw-bold">
+      <p>{{ product.name }}</p>
+      <p>{{ product.price }}</p>
+    </div>
+    <div class="d-flex justify-content-between px-4">
+      <div class="dropdown">
+        <select class="select-input px-4 btn btn-success btn-sm" [(ngModel)]="amount">
+          <option *ngFor="let item of selectAmount" [value]="item.value">
+            {{ item.value }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary btn-sm"
+          (click)="addToCart(product, amount)"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
